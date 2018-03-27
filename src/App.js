@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Header from "./components/Header";
 import Gauge from './components/Gauge';
 import MdIconPack from 'react-icons/lib/md';
+
 import './App.css';
 
 class App extends Component {
@@ -29,8 +30,8 @@ class App extends Component {
         datasets: [
           {
             data: [],
-            backgroundColor: ['#36A2EB', '#FF6384', '#000000'],
-            hoverBackgroundColor: ['#36A2EB', '#FF6384', '#FFCE56']
+            backgroundColor: ['#36A2EB', '#FF6384', '#ffffff18'], // measurement, residual, empty-fill
+            hoverBackgroundColor: ['#36A2EB10', '#FF638410', '#FFCE5610']
           }
         ]
       },
@@ -39,8 +40,8 @@ class App extends Component {
         datasets: [
           {
             data: [],
-            backgroundColor: ['#36A2EB', '#FF6384', '#000000'],
-            hoverBackgroundColor: ['#36A2EB', '#FF6384', '#FFCE56']
+            backgroundColor: ['#b0ff92', '#b0ff92', '#ffffff18'], // measurement, residual, empty-fill
+            hoverBackgroundColor: ['#36A2EB10', '#FF638410', '#FFCE5610']
           }
         ]
       },
@@ -49,8 +50,8 @@ class App extends Component {
         datasets: [
           {
             data: [],
-            backgroundColor: ['#36A2EB', '#FF6384', '#000000'],
-            hoverBackgroundColor: ['#36A2EB', '#FF6384', '#FFCE56']
+            backgroundColor: ['#9f93dc', '#9f93dc', '#ffffff18'],  // measurement, residual, empty-fill
+            hoverBackgroundColor: ['#36A2EB10', '#FF638410', '#FFCE5610']
           }
         ]
       },
@@ -92,6 +93,7 @@ class App extends Component {
     console.log('Temp Update: ', this.state.tempGaugeData.datasets);
     return newValues;
   };
+
   setPresGauge = (conditions, HL) => {
     var newValues = this.state.pressureGaugeData;
     var min = 0; // starting, low end gauge value
@@ -102,10 +104,11 @@ class App extends Component {
     console.log('Pres Update: ', this.state.pressureGaugeData.datasets);
     return newValues;
   };
+
   setHumiGauge = (conditions, HL) => {
     var newValues = this.state.humidityGaugeData;
     var min = 0; // starting, low end gauge value
-    var indicator = conditions / HL.h * 100; // represent current condition as percent of the high
+    var indicator = conditions; // represent current condition as percent of the high
     var remainder = (HL.h - conditions) / HL.h * 100; // create the remainder object to fill up the rest of the chart
     newValues.datasets[0].data = [min, indicator, remainder];
     this.setState({ humidityGaugeData: newValues });
@@ -114,17 +117,21 @@ class App extends Component {
   };
 
   render() {
-    return <div className="App">
+    return (
+    <div className="App">
         <Header />
-        <p className="App-intro">Welcome to your sensor dashboard.</p>
+        <div className='status'>
+          <p>Sensor Status: <span className='live'>LIVE</span></p>
+        </div>
         <div className="gauge-wrapper">
-          <Gauge title={'Current Temperature'} data={this.state.tempGaugeData} currentData={this.state.currentConditions.tempf} HL={this.state.recordHL.temp} />
-          <Gauge title={'Current Humidity'} data={this.state.humidityGaugeData} currentData={this.state.currentConditions.humidity} HL={this.state.recordHL.humidity} />
-          <Gauge title={'Current Pressure'} data={this.state.pressureGaugeData} currentData={this.state.currentConditions.baromin} HL={this.state.recordHL.pressure} />
+          <Gauge title={'Temperature'} units={'°F'} data={this.state.tempGaugeData} currentData={this.state.currentConditions.tempf} HL={this.state.recordHL.temp} />
+          <Gauge title={'Humidity'} units={'%'} data={this.state.humidityGaugeData} currentData={this.state.currentConditions.humidity} HL={this.state.recordHL.humidity} />
+          <Gauge title={'Pressure'} units={'in'} data={this.state.pressureGaugeData} currentData={this.state.currentConditions.baromin} HL={this.state.recordHL.pressure} />
         </div>
         {/* <Tabs /> */}
         {/* <Footer /> */}
-      </div>;
+    </div>
+      );
   }
 }
 

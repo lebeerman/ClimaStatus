@@ -24,7 +24,7 @@ Chart.pluginService.register({
 
       // Find out how much the font can grow in width.
       var widthRatio = elementWidth / stringWidth;
-      var newFontSize = Math.floor(30 * widthRatio);
+      var newFontSize = Math.floor(10 * widthRatio);
       var elementHeight = chart.innerRadius * 2;
 
       // Pick a new font size so it will not be larger than the height of label.
@@ -34,7 +34,7 @@ Chart.pluginService.register({
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
       var centerX = (chart.chartArea.left + chart.chartArea.right) / 2;
-      var centerY = (chart.chartArea.top + chart.chartArea.bottom) / 2;
+      var centerY = (chart.chartArea.top + chart.chartArea.bottom) / 1.25;
       ctx.font = fontSizeToUse + 'px ' + fontStyle;
       ctx.fillStyle = color;
 
@@ -61,8 +61,8 @@ export default class Gauge extends React.Component {
             },
             elements: {
               center: {
-                text: '50%',
-                color: '#000000', // Default is #000000
+                text: `${Math.floor(this.props.data.datasets[0].data[1],1)}${this.props.units}` ,
+                color: '#ffffff', // Default is #000000
                 fontStyle: 'Arial', // Default is Arial
                 sidePadding: 1 // Defualt is 20 (as a percentage)
               }

@@ -6,7 +6,10 @@ const Header = () => {
   return <div>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <h1 className="App-title">ClimaStatus</h1>
+        <div className="App-slug">
+          <h1 className="App-title">ClimaStatus</h1>
+          <h3 className="App-intro">Sensor Dashboard: The Eiber Station</h3>
+        </div>
       </header>
     </div>;
 }
