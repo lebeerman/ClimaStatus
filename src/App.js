@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Header from "./components/Header";
 import Gauge from './components/Gauge';
+import MdIconPack from 'react-icons/lib/md';
 import './App.css';
 
 class App extends Component {
