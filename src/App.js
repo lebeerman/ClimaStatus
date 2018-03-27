@@ -80,6 +80,7 @@ class App extends Component {
         this.setTempGauge(this.state.currentConditions.tempf, this.state.recordHL.temp);
         this.setHumiGauge(this.state.currentConditions.humidity, this.state.recordHL.humidity);
         this.setPresGauge(this.state.currentConditions.baromin, this.state.recordHL.pressure);
+        
       });
   };
 
