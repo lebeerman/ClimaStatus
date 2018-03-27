@@ -1,38 +1,76 @@
 import React from 'react';
 import { Doughnut } from 'react-chartjs-2';
+import { Chart } from 'react-chartjs-2';
 
-function getRandomInt(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
+Chart.pluginService.register({
+  beforeDraw: function(chart) {
+    if (chart.config.options.elements.center) {
+      //Get ctx from string
+      var ctx = chart.chart.ctx;
 
-const getState = () => ({
-  labels: ['Red', 'Green', 'Yellow'],
-  datasets: [
-    {
-      data: [getRandomInt(50, 200), getRandomInt(100, 150), getRandomInt(150, 250)],
-      backgroundColor: ['#CCC', '#36A2EB', '#FFCE56'],
-      hoverBackgroundColor: ['#FF6384', '#36A2EB', '#FFCE56']
+      //Get options from the center object in options
+      var centerConfig = chart.config.options.elements.center;
+      var fontStyle = centerConfig.fontStyle || 'Arial';
+      var txt = centerConfig.text;
+      var color = centerConfig.color || '#000';
+      var sidePadding = centerConfig.sidePadding || 20;
+      var sidePaddingCalculated = sidePadding / 100 * (chart.innerRadius * 2);
+      //Start with a base font of 30px
+      ctx.font = '30px ' + fontStyle;
+
+      //Get the width of the string and also the width of the element minus 10 to give it 5px side padding
+      var stringWidth = ctx.measureText(txt).width;
+      var elementWidth = chart.innerRadius * 2 - sidePaddingCalculated;
+
+      // Find out how much the font can grow in width.
+      var widthRatio = elementWidth / stringWidth;
+      var newFontSize = Math.floor(30 * widthRatio);
+      var elementHeight = chart.innerRadius * 2;
+
+      // Pick a new font size so it will not be larger than the height of label.
+      var fontSizeToUse = Math.min(newFontSize, elementHeight);
+
+      //Set font settings to draw it correctly.
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      var centerX = (chart.chartArea.left + chart.chartArea.right) / 2;
+      var centerY = (chart.chartArea.top + chart.chartArea.bottom) / 2;
+      ctx.font = fontSizeToUse + 'px ' + fontStyle;
+      ctx.fillStyle = color;
+
+      //Draw text in center
+      ctx.fillText(txt, centerX, centerY);
     }
-  ]
+  }
 });
 
 export default class Gauge extends React.Component {
-  getInitialState = () => {
-      return getState();
-    }
-  
-  componentWillMount() {
-    setInterval(() => {
-      this.setState(getState());
-    }, 5000);
-  }
   render() {
-    const displayName = 'DynamicDoughnutExample';
-  
     return (
-      <div>
-        <h2>Dynamicly refreshed Doughnut Example</h2>
-        <Doughnut data={this.state} />
+      <div className='gauge-container'>
+        <h2>{this.props.title}</h2>
+        <Doughnut 
+          data={this.props.data}
+          options={{
+            rotation: 1 * Math.PI,
+            circumference: 1 * Math.PI,
+            legend: {
+              display: false,
+              position:"bottom",
+              fmaintainAspectRatio:false,
+            },
+            elements: {
+              center: {
+                text: '50%',
+                color: '#000000', // Default is #000000
+                fontStyle: 'Arial', // Default is Arial
+                sidePadding: 1 // Defualt is 20 (as a percentage)
+              }
+            }
+          }}
+          width={100}
+          height={50}
+        />
       </div>
     );
   }

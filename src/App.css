@@ -22,7 +22,30 @@
   font-size: large;
 }
 
+/*
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
+   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+} 
+*/
+
+.gauge-wrapper {
+  display: flex !important;
+  flex-direction: row-wrap;
+  justify-content: center;
+  align-items: center;
+}
+@media (max-width:700px) {
+ .gauge-wrapper {
+   flex-direction: column;
+ }
+}
+
+.gauge-container {
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+  align-items: center;
+  margin: 0;
+  padding: 0;
 }

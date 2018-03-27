@@ -1,0 +1,20 @@
+const data = [
+{ "_id" : ObjectId("5ab7d1d134012a1659925a83"), "dateutc" : "2018-03-25 16:44:00.175373", "tempf" : "68.3", "baromin" : "24.5", "humidity" : "27.0", "action" : "updateraw", "PASSWORD" : "3zeq8oem", "ID" : "KCODENVE579" },
+{ "_id" : ObjectId("5ab7d24934012a1659925a84"), "dateutc" : "2018-03-25 16:46:00.567129", "tempf" : "68.0", "baromin" : "24.5", "humidity" : "26.0", "action" : "updateraw", "PASSWORD" : "3zeq8oem", "ID" : "KCODENVE579" },
+{ "_id" : ObjectId("5ab7d2c134012a1659925a85"), "dateutc" : "2018-03-25 16:48:00.750054", "tempf" : "68.6", "baromin" : "24.5", "humidity" : "26.0", "action" : "updateraw", "PASSWORD" : "3zeq8oem", "ID" : "KCODENVE579" },
+{ "_id" : ObjectId("5ab7d33934012a1659925a86"), "dateutc" : "2018-03-25 16:50:00.697619", "tempf" : "69.3", "baromin" : "24.5", "humidity" : "25.0", "action" : "updateraw", "PASSWORD" : "3zeq8oem", "ID" : "KCODENVE579" },
+{ "_id" : ObjectId("5ab7d3b134012a1659925a87"), "dateutc" : "2018-03-25 16:52:00.692197", "tempf" : "69.2", "baromin" : "24.5", "humidity" : "26.0", "action" : "updateraw", "PASSWORD" : "3zeq8oem", "ID" : "KCODENVE579" },
+{ "_id" : ObjectId("5ab7d42a34012a1659925a88"), "dateutc" : "2018-03-25 16:54:00.741730", "tempf" : "69.2", "baromin" : "24.5", "humidity" : "25.0", "action" : "updateraw", "PASSWORD" : "3zeq8oem", "ID" : "KCODENVE579" },
+{ "_id" : ObjectId("5ab7d4a134012a1659925a89"), "dateutc" : "2018-03-25 16:56:00.269371", "tempf" : "69.2", "baromin" : "24.5", "humidity" : "25.0", "action" : "updateraw", "PASSWORD" : "3zeq8oem", "ID" : "KCODENVE579" },
+{ "_id" : ObjectId("5ab7d51834012a1659925a8a"), "dateutc" : "2018-03-25 16:58:00.275877", "tempf" : "68.8", "baromin" : "24.5", "humidity" : "24.0", "action" : "updateraw", "PASSWORD" : "3zeq8oem", "ID" : "KCODENVE579" },
+{ "_id" : ObjectId("5ab7d59034012a1659925a8b"), "dateutc" : "2018-03-25 17:00:00.238751", "tempf" : "70.0", "baromin" : "24.5", "humidity" : "25.0", "action" : "updateraw", "PASSWORD" : "3zeq8oem", "ID" : "KCODENVE579" },
+{ "_id" : ObjectId("5ab7d60834012a1659925a8c"), "dateutc" : "2018-03-25 17:02:00.232540", "tempf" : "69.7", "baromin" : "24.5", "humidity" : "24.0", "action" : "updateraw", "PASSWORD" : "3zeq8oem", "ID" : "KCODENVE579" },
+{ "_id" : ObjectId("5ab7d68134012a1659925a8d"), "dateutc" : "2018-03-25 17:04:00.668205", "tempf" : "70.2", "baromin" : "24.5", "humidity" : "24.0", "action" : "updateraw", "PASSWORD" : "3zeq8oem", "ID" : "KCODENVE579" },
+{ "_id" : ObjectId("5ab7d6f934012a1659925a8e"), "dateutc" : "2018-03-25 17:06:00.814995", "tempf" : "69.5", "baromin" : "24.5", "humidity" : "23.0", "action" : "updateraw", "PASSWORD" : "3zeq8oem", "ID" : "KCODENVE579" },
+{ "_id" : ObjectId("5ab7d77134012a1659925a8f"), "dateutc" : "2018-03-25 17:08:00.850610", "tempf" : "69.9", "baromin" : "24.5", "humidity" : "24.0", "action" : "updateraw", "PASSWORD" : "3zeq8oem", "ID" : "KCODENVE579" },
+{ "_id" : ObjectId("5ab7d7e934012a1659925a90"), "dateutc" : "2018-03-25 17:10:00.814772", "tempf" : "70.2", "baromin" : "24.5", "humidity" : "23.0", "action" : "updateraw", "PASSWORD" : "3zeq8oem", "ID" : "KCODENVE579" },
+{ "_id" : ObjectId("5ab7d86134012a1659925a91"), "dateutc" : "2018-03-25 17:12:00.772134", "tempf" : "70.3", "baromin" : "24.5", "humidity" : "23.0", "action" : "updateraw", "PASSWORD" : "3zeq8oem", "ID" : "KCODENVE579" },
+{ "_id" : ObjectId("5ab7d8d934012a1659925a92"), "dateutc" : "2018-03-25 17:14:00.705406", "tempf" : "70.9", "baromin" : "24.5", "humidity" : "23.0", "action" : "updateraw", "PASSWORD" : "3zeq8oem", "ID" : "KCODENVE579" },
+{ "_id" : ObjectId("5ab7d95134012a1659925a93"), "dateutc" : "2018-03-25 17:16:00.682128", "tempf" : "70.7", "baromin" : "24.5", "humidity" : "24.0", "action" : "updateraw", "PASSWORD" : "3zeq8oem", "ID" : "KCODENVE579" }
+];
+module.exports data;
