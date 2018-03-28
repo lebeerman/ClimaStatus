@@ -1,6 +1,10 @@
 import React from 'react';
 import logo from '../logo.png';
-import MdIconPack from 'react-icons/lib/md';
+import User from 'react-icons/lib/fa/user';
+import Github from 'react-icons/lib/fa/github';
+import Menu from 'react-icons/lib/ti/th-menu';
+import Linkedin from 'react-icons/lib/ti/social-linkedin';
+import Twitter from 'react-icons/lib/ti/social-twitter';
 
 const Header = () => {
   return <div>
@@ -9,20 +13,31 @@ const Header = () => {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">ClimaStatus</h1>
         </div>
-          <nav>
-            <ul className="nav-links">
-              <li>
-                <a href="/">Profile</a>
-              </li>
-              <li>|</li>
-              <li>
-                <a href="/">Logout</a>
-              </li>
-              <li>
-                <a href="/">Register Device</a>
-              </li>
-            </ul>
-          </nav>
+        <nav>
+          <ul className="nav-links">
+            <li>
+              <a href="/">
+                <Menu size={45} />
+              </a>
+            </li>
+            <li>|</li>
+            <li>
+              <a href="www.github.com/lebeerman">
+                <Github size={45} />
+              </a>
+            </li>
+            <li>
+              <a href="www.linkedin.com/in/daniel-beerman">
+                <Linkedin size={45} />
+              </a>
+            </li>
+            <li>
+              <a href="www.twitter.com/tobdaniel">
+                <Twitter size={45} />
+              </a>
+            </li>
+          </ul>
+        </nav>
       </header>
     </div>;
 }

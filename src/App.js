@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import Header from "./components/Header";
 import Gauge from './components/Gauge';
+import Lines from './components/Lines';
+// import Footer from './components/Footer';
 import MdIconPack from 'react-icons/lib/md';
-
+import WU from './WU-logo.png';
 import './App.css';
 
 class App extends Component {
@@ -80,7 +82,6 @@ class App extends Component {
         this.setTempGauge(this.state.currentConditions.tempf, this.state.recordHL.temp);
         this.setHumiGauge(this.state.currentConditions.humidity, this.state.recordHL.humidity);
         this.setPresGauge(this.state.currentConditions.baromin, this.state.recordHL.pressure);
-        
       });
   };
 
@@ -124,15 +125,20 @@ class App extends Component {
           <h2>Station Dashboard</h2>
           <div className="status">
             <p>
-              <strong>Registered Name:</strong> The Eiber Station
+              <strong>Registration:</strong>
+              <span>
+                <img className="wu" src={WU} atl="WU logo" />
+                The Eiber Station
+              </span>
             </p>
             <p>
               <strong>Sensors: </strong>
-              <span className="live"> Temp., Pressure, Humidity</span>
+              <span>Temp.</span>
+              <span>Pressure</span>
+              <span>Humidity</span>
             </p>
             <p>
-              <span className="live">LIVE</span>
-              <span className="live">LIVE</span>
+              <span className={`live`}>LIVE</span> 'react-icons/lib/go/radio-tower'
             </p>
           </div>
         </div>
@@ -141,10 +147,38 @@ class App extends Component {
           <Gauge title={'Humidity'} units={'%'} data={this.state.humidityGaugeData} currentData={this.state.currentConditions.humidity} HL={this.state.recordHL.humidity} />
           <Gauge title={'Pressure'} units={'in'} data={this.state.pressureGaugeData} currentData={this.state.currentConditions.baromin} HL={this.state.recordHL.pressure} />
         </div>
+        <Lines allData={this.state} style={{height:250}} />
+
         {/* <Tabs /> */}
         {/* <Footer /> */}
+        <a href="http://www.wunderground.com/weatherstation/WXDailyHistory.asp?ID=KCODENVE579">
+          <img src="http://banners.wunderground.com/cgi-bin/banner/ban/wxBanner?bannertype=pws250&weatherstationcount=KCODENVE579" width="250" height="150" border="0" alt="Weather Underground PWS KCODENVE579" />
+        </a>
       </div>;
   }
 }
 
 export default App;
+{/*
+TiWavesOutline
+react-icons/lib/ti/waves-outline
+TiWaves
+react-icons/lib/ti/waves
+TiWeatherCloudy
+react-icons/lib/ti/weather-cloudy
+TiWeatherDownpour
+react-icons/lib/ti/weather-downpour
+TiWeatherNight
+react-icons/lib/ti/weather-night
+TiWeatherPartlySunny
+react-icons/lib/ti/weather-partly-sunny
+TiWeatherShower
+react-icons/lib/ti/weather-shower
+TiWeatherSnow
+react-icons/lib/ti/weather-snow
+TiWeatherStormy
+react-icons/lib/ti/weather-stormy
+TiWeatherSunny
+react-icons/lib/ti/weather-sunny
+TiWeatherWindyCloudy
+react-icons/lib/ti/weather-windy-cloudy */}

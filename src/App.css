@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css?family=Monoton|Roboto');
+* {
+  font-family: 'Roboto','Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
 body {
   width: 100wh;
   height: 90vh;
@@ -80,8 +84,10 @@ body {
 }
 
 .App-title {
-  font-size: 1.5em;
-  padding-left: 1em;
+  font-size: 2.5em;
+  font-weight: 100;
+  padding-left: .5em;
+  font-family: 'Monoton', 'Helvetica', 'san-serif'
 }
 
 /*  NAVIGATION */
@@ -113,9 +119,27 @@ li a {
   margin-bottom: 0;
 }
 
+.station-info>div>p>span {
+  padding: 0.75rem;
+  margin: 0.2rem;
+  border: #ffffffa9 solid 2px;
+  border-radius: 15px;
+}
+.station-info>div>p {
+  margin: 1rem;
+}
+ .wu {
+   height: 30px;
+   padding-right: .5rem;
+ }
+/* .station-info>div>p:nth-child(2) {
+  padding: 0.75rem;
+  border: #ffffff solid 2px;
+} */
+
 .live {
   color: #b0ff92;
-  border: #b0ff92 solid 2px;
+  border: #b0ff92 solid 2px !important;
   padding: 0.75rem;
   border-radius: 15px;
 }
@@ -165,4 +189,6 @@ purp 9f93dc
 }
 
 
-
+.hidden {
+  display: hidden;
+}

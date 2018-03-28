@@ -63,7 +63,7 @@ export default class Gauge extends React.Component {
               center: {
                 text: `${Math.floor(this.props.data.datasets[0].data[1],1)}${this.props.units}` ,
                 color: '#ffffff', // Default is #000000
-                fontStyle: 'Arial', // Default is Arial
+                fontStyle: 'Roboto', // Default is Arial
                 sidePadding: 1 // Defualt is 20 (as a percentage)
               }
             }
