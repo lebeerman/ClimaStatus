@@ -5,11 +5,24 @@ import MdIconPack from 'react-icons/lib/md';
 const Header = () => {
   return <div>
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <div className="App-slug">
+          <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">ClimaStatus</h1>
-          <h3 className="App-intro">Sensor Dashboard: The Eiber Station</h3>
         </div>
+          <nav>
+            <ul className="nav-links">
+              <li>
+                <a href="/">Profile</a>
+              </li>
+              <li>|</li>
+              <li>
+                <a href="/">Logout</a>
+              </li>
+              <li>
+                <a href="/">Register Device</a>
+              </li>
+            </ul>
+          </nav>
       </header>
     </div>;
 }

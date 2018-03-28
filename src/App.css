@@ -1,69 +1,79 @@
+body {
+  width: 100wh;
+  height: 90vh;
+  color: #fff;
+  background: linear-gradient(-45deg, #EE7752, rgb(75, 31, 48), rgb(31, 62, 73), rgb(110, 7, 105));
+  background-size: 400% 400%;
+  -webkit-animation: Gradient 15s ease infinite;
+  -moz-animation: Gradient 15s ease infinite;
+  animation: Gradient 15s ease infinite;
+}
+
+@-webkit-keyframes Gradient {
+  0% {
+    background-position: 0% 50%
+  }
+  50% {
+    background-position: 100% 50%
+  }
+  100% {
+    background-position: 0% 50%
+  }
+}
+
+@-moz-keyframes Gradient {
+  0% {
+    background-position: 0% 50%
+  }
+  50% {
+    background-position: 100% 50%
+  }
+  100% {
+    background-position: 0% 50%
+  }
+}
+
+@keyframes Gradient {
+  0% {
+    background-position: 0% 50%
+  }
+  50% {
+    background-position: 100% 50%
+  }
+  100% {
+    background-position: 0% 50%
+  }
+}
+
 .App {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 100%;
+  align-content: center;
   text-align: center;
   color: white;
-  height: auto;
-  background: linear-gradient(360deg, #9f93dc, #222222);
-  background-size: 400% 400%;
-  -webkit-animation: AnimationName 33s ease infinite;
-  -moz-animation: AnimationName 33s ease infinite;
-  animation: AnimationName 33s ease infinite;
-  @-webkit-keyframes AnimationName {
-    0% {
-      background-position: 0% 94%
-    }
-    50% {
-      background-position: 100% 7%
-    }
-    100% {
-      background-position: 0% 94%
-    }
-  }
-
-  @-moz-keyframes AnimationName {
-    0% {
-      background-position: 0% 94%
-    }
-    50% {
-      background-position: 100% 7%
-    }
-    100% {
-      background-position: 0% 94%
-    }
-  }
-
-  @keyframes AnimationName {
-    0% {
-      background-position: 0% 94%
-    }
-    50% {
-      background-position: 100% 7%
-    }
-    100% {
-      background-position: 0% 94%
-    }
-  }
 }
 
+
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
   height: 80px;
 }
 
 .App-header {
-  background-color: #ffffff18;
-  height: 100px;
-  padding: 20px;
+  background-color: #00000050;
+  height: 90px;
+  margin: 10px;
+  padding: 10px;
   color: white;
   display: flex;
   flex-direction: row-wrap;
+  justify-content: space-between;
   align-items: center;
 }
 
 .App-slug {
+  display: flex;
+  align-items: center;
   text-align: left;
   padding-left: 1em;
   line-height: .5;
@@ -71,12 +81,50 @@
 
 .App-title {
   font-size: 1.5em;
+  padding-left: 1em;
 }
 
-.App-intro {
-  font-size: large;
+/*  NAVIGATION */
+
+.nav-links {
+  display: flex;
+  flex: row;
+}
+.nav-links.ul {
+}
+ul li {
+  list-style-type: none;
+  padding-left: 1em;
+}
+li a {
+  text-decoration: none;
+  color: white;
 }
 
+/* STATION INFO CARD */
+.station-info {
+  margin: 10px;
+  background-color: #00000050;
+  width: auto;
+  padding-bottom: 10px;
+}
+
+#root>div>div.station-info>h2 {
+  margin-bottom: 0;
+}
+
+.live {
+  color: #b0ff92;
+  border: #b0ff92 solid 2px;
+  padding: 0.75rem;
+  border-radius: 15px;
+}
+
+.status {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
 /*
 @keyframes App-logo-spin {
    from { transform: rotate(0deg); }
@@ -94,10 +142,10 @@ purp 9f93dc
 .gauge-wrapper {
   display: flex !important;
   flex-direction: row-wrap;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  background-color: #ffffff18;
-  padding: 1rem;
+  /* background-color: #ffffff18; */
+  /* padding: 1rem; */
 }
 @media (max-width:700px) {
  .gauge-wrapper {
@@ -108,20 +156,13 @@ purp 9f93dc
 .gauge-container {
   display: flex;
   flex-direction: column;
-  width: 325px;
   align-items: center;
-  margin: 0;
-  padding: 1rem;
+  background-color: #00000050;
+  color: white;
+  min-width: 350px;
+  margin: 10px;
+  padding: 10px;
 }
 
-.live {
-  color: #b0ff92;
-  border: #b0ff92 solid 2px;
-  padding: 0.75rem;
-  border-radius: 15px;
-}
 
-.status {
-  padding: 1rem;
-}
 

@@ -24,7 +24,7 @@ Chart.pluginService.register({
 
       // Find out how much the font can grow in width.
       var widthRatio = elementWidth / stringWidth;
-      var newFontSize = Math.floor(10 * widthRatio);
+      var newFontSize = Math.floor(15 * widthRatio);
       var elementHeight = chart.innerRadius * 2;
 
       // Pick a new font size so it will not be larger than the height of label.
@@ -68,8 +68,6 @@ export default class Gauge extends React.Component {
               }
             }
           }}
-          width={100}
-          height={50}
         />
       </div>
     );

@@ -118,11 +118,23 @@ class App extends Component {
   };
 
   render() {
-    return (
-    <div className="App">
+    return <div className="App">
         <Header />
-        <div className='status'>
-          <p>Sensor Status: <span className='live'>LIVE</span></p>
+        <div className="station-info">
+          <h2>Station Dashboard</h2>
+          <div className="status">
+            <p>
+              <strong>Registered Name:</strong> The Eiber Station
+            </p>
+            <p>
+              <strong>Sensors: </strong>
+              <span className="live"> Temp., Pressure, Humidity</span>
+            </p>
+            <p>
+              <span className="live">LIVE</span>
+              <span className="live">LIVE</span>
+            </p>
+          </div>
         </div>
         <div className="gauge-wrapper">
           <Gauge title={'Temperature'} units={'°F'} data={this.state.tempGaugeData} currentData={this.state.currentConditions.tempf} HL={this.state.recordHL.temp} />
@@ -131,8 +143,7 @@ class App extends Component {
         </div>
         {/* <Tabs /> */}
         {/* <Footer /> */}
-    </div>
-      );
+      </div>;
   }
 }
 
