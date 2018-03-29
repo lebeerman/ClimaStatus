@@ -1,6 +1,11 @@
 import React from 'react';
 import logo from '../logo.png';
-import MdIconPack from 'react-icons/lib/md';
+import User from 'react-icons/lib/fa/user';
+import Github from 'react-icons/lib/fa/github';
+import Menu from 'react-icons/lib/ti/th-menu';
+import Linkedin from 'react-icons/lib/ti/social-linkedin';
+import Twitter from 'react-icons/lib/ti/social-twitter';
+import Profile from './db-profile.gif';
 
 const Header = () => {
   return <div>
@@ -9,20 +14,37 @@ const Header = () => {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">ClimaStatus</h1>
         </div>
-          <nav>
-            <ul className="nav-links">
-              <li>
-                <a href="/">Profile</a>
-              </li>
-              <li>|</li>
-              <li>
-                <a href="/">Logout</a>
-              </li>
-              <li>
-                <a href="/">Register Device</a>
-              </li>
-            </ul>
-          </nav>
+        <nav>
+          <ul className="nav-links">
+            <li>
+              <img className="user-img" src={Profile} />
+            </li>
+            <li>
+              <a href="/">
+                <Menu size={45} />
+              </a>
+            </li>
+            <li>
+              <ul className="social">
+                <li>
+                  <a rel="noopener noreferrer" href="https://www.github.com/lebeerman" target="_blank">
+                    <Github size={30} />
+                  </a>
+                </li>
+                <li>
+                  <a rel="noopener noreferrer" href="https://www.linkedin.com/in/daniel-beerman" target="_blank">
+                    <Linkedin size={30} />
+                  </a>
+                </li>
+                <li>
+                  <a rel="noopener noreferrer" href="https://www.twitter.com/tobdaniel" target="_blank">
+                    <Twitter size={30} />
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
       </header>
     </div>;
 }
