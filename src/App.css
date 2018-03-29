@@ -2,6 +2,7 @@
 * {
   font-family: 'Roboto','Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
+
 body {
   width: 100wh;
   height: 90vh;
@@ -58,9 +59,15 @@ body {
   color: white;
 }
 
-
 .App-logo {
   height: 80px;
+  transition: filter 0.5s, color 0.5s;
+}
+
+.App-logo:hover {
+  color: black;
+  filter: drop-shadow(0px 0px 10px #ffffff);
+  /*  Offset x, y, blur spread, color */
 }
 
 .App-header {
@@ -95,19 +102,60 @@ body {
 .nav-links {
   display: flex;
   flex: row;
+  justify-self: center;
+  align-items: center;
+  transition: background-color 0.5s;
 }
-.nav-links.ul {
+
+.nav-links ul:hover {
+  background-color:#ffffff20;
 }
-ul li {
+
+.card ul li, ul li {
   list-style-type: none;
   padding-left: 1em;
 }
-li a {
+
+.cards ul li, .cards a, li a {
   text-decoration: none;
   color: white;
+  transition: color 0.5s, filter 0.5s;
+}
+
+.cards ul li:hover, .cards a:hover,li a:hover {
+  color:black;
+  height: 150%;
+  width: auto;
+  border-radius: 15px;
+  filter: drop-shadow(0px 0px 10px #ffffff);
+}
+
+.social {
+  display: flex;
+  flex-direction:row;
+  padding: 0.75rem;
+  margin: 0.2rem;
+  border: #ffffffa9 solid 2px;
+  border-radius: 15px;
+
+}
+
+.user-img {
+  align-self: center;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  border: white solid 4px;
+  transition: border 0.5s, filter 0.5s;
+}
+
+.user-img:hover {
+  border: black solid 4px;
+  filter: drop-shadow(0px 0px 10px #ffffff);
 }
 
 /* STATION INFO CARD */
+
 .station-info {
   margin: 10px;
   background-color: #00000050;
@@ -124,18 +172,19 @@ li a {
   margin: 0.2rem;
   border: #ffffffa9 solid 2px;
   border-radius: 15px;
+  transition: filter 0.5s;
 }
+span:hover {
+  filter: drop-shadow(0px 0px 10px #ffffff);
+}
+
 .station-info>div>p {
   margin: 1rem;
 }
+
  .wu {
-   height: 30px;
-   padding-right: .5rem;
+   height: 25px;
  }
-/* .station-info>div>p:nth-child(2) {
-  padding: 0.75rem;
-  border: #ffffff solid 2px;
-} */
 
 .live {
   color: #b0ff92;
@@ -149,46 +198,102 @@ li a {
   flex-direction: row;
   justify-content: space-around;
 }
-/*
-@keyframes App-logo-spin {
-   from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-} 
-COLOR KEY
-
-blue 259fd9-
-black 2f3139-
-pink ea526f-
-green b0ff92-
-purp 9f93dc
-*/
 
 .gauge-wrapper {
   display: flex !important;
-  flex-direction: row-wrap;
+  flex-direction: row;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   /* background-color: #ffffff18; */
   /* padding: 1rem; */
 }
-@media (max-width:700px) {
- .gauge-wrapper {
-   flex-direction: column;
- }
-}
-
 .gauge-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: #00000050;
   color: white;
-  min-width: 350px;
+  min-width: 300px;
+  max-width: 375px;
+  width:100%;
   margin: 10px;
   padding: 10px;
 }
 
-
 .hidden {
   display: hidden;
 }
+
+.line-graph-container {
+  height: 450px;
+}
+
+
+
+/* FOOTER CARD (cards should be a part of the dashboard refactor) */
+
+.cards {
+  display: flex !important;
+  /* flex-direction: row; */
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #00000050 ;
+  padding: 1rem;
+  margin: 10px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: #ffffff70;
+  text-decoration: none;
+  max-width: 350px;
+  text-align:left !important;
+  }
+
+.card-title {
+  font-family: 'Roboto Condensed', sans-serif;
+  text-transform: uppercase;
+  width: 100%;
+  font-size: 1.2em;
+}
+.card-meta {
+  max-height: 0;
+  font-size: .78em;
+  text-transform: uppercase;
+  padding: 0 5%;
+}
+
+
+
+/* MEDIA QUERIES!!! */
+
+@media (max-width:900px) {
+  
+  .gauge-wrapper {
+    flex-direction: column;
+  }
+  .status {
+    flex-direction: column;
+  }
+  .App-title {
+    font-size: 1em;
+  }
+  .social {
+    display: none;
+  }
+}
+
+
+/* --------------- COLOR KEY --------------
+
+blue 259fd9
+black 2f313
+pink ea526f
+green b0ff9
+purp 9f93dc
+
+*/

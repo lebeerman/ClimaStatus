@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import Header from "./components/Header";
 import Gauge from './components/Gauge';
 import Lines from './components/Lines';
-// import Footer from './components/Footer';
+import Footer from './components/Footer';
 import MdIconPack from 'react-icons/lib/md';
+import Broadcast from 'react-icons/lib/go/radio-tower';
 import WU from './WU-logo.png';
 import './App.css';
 
@@ -127,7 +128,6 @@ class App extends Component {
             <p>
               <strong>Registration:</strong>
               <span>
-                <img className="wu" src={WU} atl="WU logo" />
                 The Eiber Station
               </span>
             </p>
@@ -138,7 +138,9 @@ class App extends Component {
               <span>Humidity</span>
             </p>
             <p>
-              <span className={`live`}>LIVE</span> 'react-icons/lib/go/radio-tower'
+              <span className={`live`}>
+                LIVE <Broadcast size={25} />{' '}
+              </span>
             </p>
           </div>
         </div>
@@ -147,13 +149,11 @@ class App extends Component {
           <Gauge title={'Humidity'} units={'%'} data={this.state.humidityGaugeData} currentData={this.state.currentConditions.humidity} HL={this.state.recordHL.humidity} />
           <Gauge title={'Pressure'} units={'in'} data={this.state.pressureGaugeData} currentData={this.state.currentConditions.baromin} HL={this.state.recordHL.pressure} />
         </div>
-        <Lines allData={this.state} style={{height:250}} />
+        {/* <Lines allData={this.state} /> */}
 
         {/* <Tabs /> */}
-        {/* <Footer /> */}
-        <a href="http://www.wunderground.com/weatherstation/WXDailyHistory.asp?ID=KCODENVE579">
-          <img src="http://banners.wunderground.com/cgi-bin/banner/ban/wxBanner?bannertype=pws250&weatherstationcount=KCODENVE579" width="250" height="150" border="0" alt="Weather Underground PWS KCODENVE579" />
-        </a>
+        <Footer />
+      
       </div>;
   }
 }

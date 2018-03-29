@@ -5,6 +5,7 @@ import Github from 'react-icons/lib/fa/github';
 import Menu from 'react-icons/lib/ti/th-menu';
 import Linkedin from 'react-icons/lib/ti/social-linkedin';
 import Twitter from 'react-icons/lib/ti/social-twitter';
+import Profile from './db-profile.gif';
 
 const Header = () => {
   return <div>
@@ -16,25 +17,31 @@ const Header = () => {
         <nav>
           <ul className="nav-links">
             <li>
+              <img className="user-img" src={Profile} />
+            </li>
+            <li>
               <a href="/">
                 <Menu size={45} />
               </a>
             </li>
-            <li>|</li>
             <li>
-              <a href="www.github.com/lebeerman">
-                <Github size={45} />
-              </a>
-            </li>
-            <li>
-              <a href="www.linkedin.com/in/daniel-beerman">
-                <Linkedin size={45} />
-              </a>
-            </li>
-            <li>
-              <a href="www.twitter.com/tobdaniel">
-                <Twitter size={45} />
-              </a>
+              <ul className="social">
+                <li>
+                  <a rel="noopener noreferrer" href="https://www.github.com/lebeerman" target="_blank">
+                    <Github size={30} />
+                  </a>
+                </li>
+                <li>
+                  <a rel="noopener noreferrer" href="https://www.linkedin.com/in/daniel-beerman" target="_blank">
+                    <Linkedin size={30} />
+                  </a>
+                </li>
+                <li>
+                  <a rel="noopener noreferrer" href="https://www.twitter.com/tobdaniel" target="_blank">
+                    <Twitter size={30} />
+                  </a>
+                </li>
+              </ul>
             </li>
           </ul>
         </nav>
