@@ -38,5 +38,4 @@ ClimaStatus is a Personal Weather Station registered through Weather Underground
 - [Raspberry Pi](https://www.raspberrypi.org/)
 - [Astero Pi](https://astro-pi.org/)
 - [ClimaStatus API](https://github.com/lebeerman/ClimaStatus)
-
-https://www.wunderground.com/personal-weather-station/dashboard?ID=KCODENVE579#history/tgraphs/s20180321/e20180328/mweek
+- [Register a Personal Weather Station](https://www.wunderground.com/personal-weather-station/)
