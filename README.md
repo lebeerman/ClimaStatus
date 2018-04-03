@@ -6,7 +6,7 @@ By [Dan Beerman](https://www.danbeerman.com)
 
 
 ClimaStatus is a Personal Weather Station registered through Weather Underground. The app is hosted using a continuous deployment strategy with Netlify. 
-
+- Presentation Video: [g70 Capstone Showcase](https://youtu.be/OQbGKI5RDhY)
 - View the app: [Live Dashboard App](http://climastatus.netlify.com/)
 - View the WU Station:[The Eiber Station](https://www.wunderground.com/personal-weather-station/dashboard?ID=KCODENVE579)
 
