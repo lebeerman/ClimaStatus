@@ -12,7 +12,7 @@ ClimaStatus is a Personal Weather Station registered through Weather Underground
 
 ### Check It:
 
-
+![Visual Aid](./climaStatus.gif)
 
 ### Technologies: 
 
