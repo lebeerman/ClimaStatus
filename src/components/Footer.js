@@ -24,7 +24,7 @@ return (
         Data updating from IoT weather sensors, wherever they're connected. This dashboard is built using
         React and Chart.js.
       </p>
-      <a href="htts://www.danbeerman.com" target="_blank">
+      <a href="https://www.danbeerman.com" target="_blank">
         By Dan Beerman. Connect to learn.
       </a>
     </div>
