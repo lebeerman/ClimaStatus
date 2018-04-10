@@ -46,7 +46,7 @@ npm start
 #### Reference Materials: 
 
 - [Raspberry Pi](https://www.raspberrypi.org/)
-- [Astero Pi](https://astro-pi.org/)
+- [Astro Pi](https://astro-pi.org/)
 - [ClimaStatus API](https://github.com/lebeerman/ClimaStatus)
 - [Register a Personal Weather Station](https://www.wunderground.com/personal-weather-station/)
 - [Icons](https://www.flaticon.com/)
