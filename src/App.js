@@ -149,7 +149,7 @@ class App extends Component {
             <p>
               <strong>Registration:</strong>
               <span>
-                The Eiber Station
+                W Highlands Pi
               </span>
             </p>
             <p>
