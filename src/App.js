@@ -1,17 +1,19 @@
 import React, { Component } from 'react';
 import Header from "./components/Header";
 import Gauge from './components/Gauge';
-import Lines from './components/Lines';
 import Footer from './components/Footer';
-import MdIconPack from 'react-icons/lib/md';
 import Broadcast from 'react-icons/lib/go/radio-tower';
-import WU from './WU-logo.png';
 import './App.css';
+// TODO (DAN) - Add stock-ticker style historical data graph
+// import MdIconPack from 'react-icons/lib/md';
+// import WU from './WU-logo.png';
+// import Lines from './components/Lines';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      isLive: true,
       currentConditions: {},
       historicalData: [],
       recordHL: {
@@ -60,7 +62,7 @@ class App extends Component {
       },
       alerts: {}
     };
-    this.awsUrl = 'http://ec2-34-210-122-38.us-west-2.compute.amazonaws.com:3000';
+    this.awsUrl = 'https://ec2-34-210-122-38.us-west-2.compute.amazonaws.com:3000';
   }
 
   componentDidMount() {
@@ -79,12 +81,31 @@ class App extends Component {
     fetch(this.awsUrl)
       .then(response => response.json())
       .then(response => {
-        this.setState({ currentConditions: response[0] });
-        this.setTempGauge(this.state.currentConditions.tempf, this.state.recordHL.temp);
-        this.setHumiGauge(this.state.currentConditions.humidity, this.state.recordHL.humidity);
-        this.setPresGauge(this.state.currentConditions.baromin, this.state.recordHL.pressure);
+        if(response.status >= 400){ // Status looks bad
+          this.setState({ isLive: false });
+          this.noData();
+        } else {
+          this.setState({ // Status looks good
+            isLive: true,
+            currentConditions: response[0]
+          });
+          this.setTempGauge(this.state.currentConditions.tempf, this.state.recordHL.temp);
+          this.setHumiGauge(this.state.currentConditions.humidity, this.state.recordHL.humidity);
+          this.setPresGauge(this.state.currentConditions.baromin, this.state.recordHL.pressure);
+        }
+      })
+      .catch((err) =>{
+        console.error(err);
+        this.setState({ isLive: false });
+        this.noData();
       });
   };
+
+  noData = () => {
+    this.setTempGauge(0, {l: 0, h: 100} );
+    this.setHumiGauge(0, {l: 20.0, h: 32.01});
+    this.setPresGauge(0, {l: 0, h: 100});
+  }
 
   setTempGauge = (conditions, HL) => {
     var newValues = this.state.tempGaugeData;
@@ -138,9 +159,13 @@ class App extends Component {
               <span>Humidity</span>
             </p>
             <p>
-              <span className={`live`}>
-                LIVE <Broadcast size={25} />{' '}
-              </span>
+              {this.state.isLive
+              ? <span className={`live`}>
+                  LIVE <Broadcast size={25} />
+                </span>
+              : <span className={'off'}>
+                  OFFLINE <Broadcast size={25} />
+                </span>}
             </p>
           </div>
         </div>
@@ -149,36 +174,37 @@ class App extends Component {
           <Gauge title={'Humidity'} units={'%'} data={this.state.humidityGaugeData} currentData={this.state.currentConditions.humidity} HL={this.state.recordHL.humidity} />
           <Gauge title={'Pressure'} units={'in'} data={this.state.pressureGaugeData} currentData={this.state.currentConditions.baromin} HL={this.state.recordHL.pressure} />
         </div>
-        {/* <Lines allData={this.state} /> */}
+        {/*
+          <Lines allData={this.state} />
+            TiWavesOutline
+            react-icons/lib/ti/waves-outline
+            TiWaves
+            react-icons/lib/ti/waves
+            TiWeatherCloudy
+            react-icons/lib/ti/weather-cloudy
+            TiWeatherDownpour
+            react-icons/lib/ti/weather-downpour
+            TiWeatherNight
+            react-icons/lib/ti/weather-night
+            TiWeatherPartlySunny
+            react-icons/lib/ti/weather-partly-sunny
+            TiWeatherShower
+            react-icons/lib/ti/weather-shower
+            TiWeatherSnow
+            react-icons/lib/ti/weather-snow
+            TiWeatherStormy
+            react-icons/lib/ti/weather-stormy
+            TiWeatherSunny
+            react-icons/lib/ti/weather-sunny
+            TiWeatherWindyCloudy
+            react-icons/lib/ti/weather-windy-cloudy
+          <Tabs />
+        */}
 
-        {/* <Tabs /> */}
         <Footer />
-      
+
       </div>;
   }
 }
 
 export default App;
-{/*
-TiWavesOutline
-react-icons/lib/ti/waves-outline
-TiWaves
-react-icons/lib/ti/waves
-TiWeatherCloudy
-react-icons/lib/ti/weather-cloudy
-TiWeatherDownpour
-react-icons/lib/ti/weather-downpour
-TiWeatherNight
-react-icons/lib/ti/weather-night
-TiWeatherPartlySunny
-react-icons/lib/ti/weather-partly-sunny
-TiWeatherShower
-react-icons/lib/ti/weather-shower
-TiWeatherSnow
-react-icons/lib/ti/weather-snow
-TiWeatherStormy
-react-icons/lib/ti/weather-stormy
-TiWeatherSunny
-react-icons/lib/ti/weather-sunny
-TiWeatherWindyCloudy
-react-icons/lib/ti/weather-windy-cloudy */}

@@ -192,6 +192,13 @@ span:hover {
   border-radius: 15px;
 }
 
+.off {
+  color: #ff9292;
+  border: #ff7878 solid 2px !important;
+  padding: 0.75rem;
+  border-radius: 15px;
+}
+
 .status {
   display: flex;
   flex-direction: row;
@@ -271,7 +278,7 @@ span:hover {
 /* MEDIA QUERIES!!! */
 
 @media (max-width:900px) {
-  
+
   .gauge-wrapper {
     flex-direction: column;
   }

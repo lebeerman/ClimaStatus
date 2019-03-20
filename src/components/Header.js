@@ -1,6 +1,5 @@
 import React from 'react';
 import logo from '../logo.png';
-import User from 'react-icons/lib/fa/user';
 import Github from 'react-icons/lib/fa/github';
 import Menu from 'react-icons/lib/ti/th-menu';
 import Linkedin from 'react-icons/lib/ti/social-linkedin';
@@ -17,7 +16,7 @@ const Header = () => {
         <nav>
           <ul className="nav-links">
             <li>
-              <img className="user-img" src={Profile} />
+              <img className="user-img" src={Profile} alt="Dan Beerman"/>
             </li>
             <li>
               <a href="/">
