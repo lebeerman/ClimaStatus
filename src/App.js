@@ -13,7 +13,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isLive: true,
+      isLive: false,
       currentConditions: {},
       historicalData: [],
       recordHL: {
@@ -66,15 +66,14 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.getCurrentData();
+    this.noData();
     this.timer();
   }
 
   timer() {
     setInterval(() => {
-      console.log('UPDATE');
       this.getCurrentData();
-    }, 60000);
+    }, 10000);
   }
 
   getCurrentData = () => {
